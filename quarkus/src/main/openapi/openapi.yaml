@@ -1,0 +1,79 @@
+openapi: 3.0.3
+info:
+  title: Mein Test API
+  description: Nur eine �bung
+  contact:
+    name: Alican Yildirim
+    url: https://github.com/alican-yildirim
+    email: aliicann.yildirim@hotmail.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  version: 2.16.5
+tags:
+  - name: Begruesungen
+    description: hier befinden sich Begrüßungs-methoden
+paths:
+  /hallo:
+    get:
+      tags:
+        - Begruesungen
+      operationId: gruesenGet
+      description: begrüßt nach angegebenen Daten mit einer GET Methode
+      parameters:
+        - $ref: '#/components/parameters/Vorname'
+        - $ref: '#/components/parameters/Nachname'
+      responses:
+        200:
+          description: OK - fruits list
+          content:
+            application/json:
+              schema:
+                default: Hallo Person
+                type: string
+    post:
+      tags:
+        - Begruesungen
+      operationId: gruesenPost
+      description: begrüßt nach angegebenen Daten mit einer POST Methode
+      requestBody:
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/Namen'
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+
+components:
+  parameters:
+    Vorname:
+      name: vorname
+      in: query
+      description: vorname angeben
+      required: true
+      schema:
+        type: string
+    Nachname:
+      name: nachname
+      in: query
+      description: nachname angeben
+      required: true
+      schema:
+        type: string
+
+  schemas:
+    Namen:
+      type: object
+      properties:
+        vorname:
+          type: string
+        nachname:
+          type: string
+      required:
+        - vorname
+        - nachname
