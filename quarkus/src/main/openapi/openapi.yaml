@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Mein Test API
-  description: Nur eine �bung
+  description: Nur eine Uebung
   contact:
     name: Alican Yildirim
     url: https://github.com/alican-yildirim
@@ -11,57 +11,57 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   version: 2.16.5
 tags:
-  - name: Begruesungen
-    description: hier befinden sich Begrüßungs-methoden
+  - name: Login
+    description: hier befinden sich Methoden zum Login oder Registrieren
 paths:
-  /hallo:
+  /login:
+    post:
+      tags:
+        - Login
+      operationId: registerUser
+      description: Diese Methode legt einen User in der DB Tabelle an.
+      requestBody:
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/LoginDaten'
+      responses:
+        200:
+          description: User existiert und wird somit eingeloggt!
+          content:
+            application/json:
+              schema:
+                type: boolean
     get:
       tags:
-        - Begruesungen
-      operationId: gruesenGet
-      description: begrüßt nach angegebenen Daten mit einer GET Methode
+        - Login
+      operationId: loginUser
+      description: Diese Methode prüft, ob der user in der DB Tabelle existiert. Falls ja, dann wird TRUE returned, andernfalls FALSE.
       parameters:
-        - $ref: '#/components/parameters/Vorname'
-        - $ref: '#/components/parameters/Nachname'
+        - $ref: '#/components/parameters/Email'
+        - $ref: '#/components/parameters/Passwort'
       responses:
         200:
           description: OK - fruits list
           content:
             application/json:
               schema:
-                default: Hallo Person
-                type: string
-    post:
-      tags:
-        - Begruesungen
-      operationId: gruesenPost
-      description: begrüßt nach angegebenen Daten mit einer POST Methode
-      requestBody:
-        content:
-          'application/json':
-            schema:
-              $ref: '#/components/schemas/Namen'
-      responses:
-        200:
-          description: OK
-          content:
-            application/json:
-              schema:
+#                default: ...
                 type: string
 
 components:
   parameters:
-    Vorname:
-      name: vorname
+    Email:
+      name: email
       in: query
-      description: vorname angeben
+      description: email angeben
       required: true
       schema:
         type: string
-    Nachname:
-      name: nachname
+    Passwort:
+      name: passwort
       in: query
-      description: nachname angeben
+      description: passwort angeben
       required: true
       schema:
         type: string
@@ -77,3 +77,24 @@ components:
       required:
         - vorname
         - nachname
+    LoginDaten:
+      type: object
+      properties:
+        vorname:
+          type: string
+        nachname:
+          type: string
+        email:
+          type: string
+        passwort:
+          type: string
+        geschlecht:
+          type: integer
+        alter:
+          type: integer
+      required:
+        - vorname
+        - nachname
+        - passwort
+        - email
+        - geschlecht
