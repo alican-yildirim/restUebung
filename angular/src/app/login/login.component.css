@@ -1,0 +1,15 @@
+.first-container{
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(90deg, #f00000,#0800ec);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.second-container{
+    height: 70%;
+    width: 30%;
+    background-color: white;
+    border-radius: 3rem;
+}
