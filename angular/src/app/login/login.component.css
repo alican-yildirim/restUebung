@@ -1,3 +1,5 @@
+
+
 .first-container{
     height: 100vh;
     width: 100vw;
@@ -12,4 +14,24 @@
     width: 30%;
     background-color: white;
     border-radius: 3rem;
+    position: relative;
+    border-top: 1rem solid #eaeaea;
+    border-bottom: 1rem solid #eaeaea;
+}
+
+.registerLoginSwitch:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    color: #f00000;
+}
+
+.registerLoginSwitch{
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+.formHeadline{
+    color: red;
+    text-align: center;
 }
