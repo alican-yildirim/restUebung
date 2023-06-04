@@ -47,7 +47,7 @@ paths:
             application/json:
               schema:
 #                default: ...
-                type: string
+                type: boolean
 
 components:
   parameters:

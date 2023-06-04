@@ -12,12 +12,28 @@ public class LoginRessource implements LoginApi {
     @Inject
     PgPool client;
 
+    private boolean ret = false;
+
     @Override
-    public String loginUser(String email, String passwort) {
+    public Boolean loginUser(String email, String passwort) {
 
-        
+        client.query("SELECT * FROM USERS WHERE email='"+ email +"' AND password='"+ passwort +"'").execute(ar -> {
 
-        return "...";
+            if (ar.succeeded()) {
+                System.out.println("SELECT was successful !");
+//              System.out.println("Size:  " + ar.result().size());  // SIZE
+
+                if(ar.result().size()>0){
+                    ret = true;
+                }else {
+                    ret = false;
+                }
+            } else {
+                System.out.println("Failure: " + ar.cause().getMessage());
+                ret = false;
+            }
+        });
+        return ret;
     }
 
     @Override

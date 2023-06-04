@@ -8,9 +8,9 @@
 
 
 
-
+        
         <div *ngIf="this.regist==false" class="forms">
-
+            
             <h1 class="formHeadline">Login</h1>
 
             <app-login-form></app-login-form>
@@ -25,7 +25,7 @@
         <div *ngIf="this.regist==true">
 
             <h1 class="formHeadline">Registrieren</h1>
-            
+
             <app-register-form></app-register-form>
 
             <a (click)='this.regist = false;' class="registerLoginSwitch">Login</a>
