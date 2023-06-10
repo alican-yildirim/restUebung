@@ -18,7 +18,7 @@ public class LoginRessource implements LoginApi {
     public Boolean loginUser(String email, String passwort) {
 
         client.query("SELECT * FROM USERS WHERE email='"+ email +"' AND password='"+ passwort +"'").execute(ar -> {
-
+ 
             if (ar.succeeded()) {
                 System.out.println("SELECT was successful !");
 //              System.out.println("Size:  " + ar.result().size());  // SIZE
