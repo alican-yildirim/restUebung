@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class RegisterFormComponent {
 
+  sliderValue : string = "0";
+
 }

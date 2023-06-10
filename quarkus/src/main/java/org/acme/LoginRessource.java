@@ -12,13 +12,13 @@ public class LoginRessource implements LoginApi {
     @Inject
     PgPool client;
 
-    private boolean ret = false;
+    private static boolean ret;
 
     @Override
     public Boolean loginUser(String email, String passwort) {
 
         client.query("SELECT * FROM USERS WHERE email='"+ email +"' AND password='"+ passwort +"'").execute(ar -> {
- 
+
             if (ar.succeeded()) {
                 System.out.println("SELECT was successful !");
 //              System.out.println("Size:  " + ar.result().size());  // SIZE
@@ -38,6 +38,15 @@ public class LoginRessource implements LoginApi {
 
     @Override
     public Boolean registerUser(LoginDaten loginDaten) {
+
+//        client.query("INSERT INTO USERS (firstname, lastname, email, password, gender, age) VALUES ('alican', 'yildirim', 'aliicann.yildirim@hotmail.com', 'alican1997', 1, 25)").execute(execute -> {
+//                if (execute.succeeded()) {
+//                System.out.println("Inserted !");
+//                } else {
+//                System.out.println("NOT Inserted ! ----- " + execute.toString());
+//                }
+//        });
+
         return null;
     }
 

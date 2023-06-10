@@ -13,7 +13,6 @@ export class LoginFormComponent {
 
   login(val : any) : void{
 
-    //https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BTC,USD,EUR
     this.client.get('http://localhost:8080/login?email=' + val['email'] + '&&passwort=' + val['password']).subscribe(data => {
 
       this.loginCheck = data;
