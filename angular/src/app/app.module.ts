@@ -9,6 +9,7 @@ import { RegisterFormComponent } from './login/register-form/register-form.compo
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const meineRouten: Routes = [
   {path:'login', component: LoginComponent}
@@ -26,7 +27,8 @@ const meineRouten: Routes = [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

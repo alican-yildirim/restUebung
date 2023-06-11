@@ -3,3 +3,11 @@ form input{
     width: 20rem;
     height: 3rem;
 }
+
+.ng-valid{
+    border-color: green;
+}
+
+.ng-invalid{
+    border-color: red;
+}

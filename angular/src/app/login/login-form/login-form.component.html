@@ -2,13 +2,13 @@
 <form #loginFormular="ngForm" (ngSubmit)="login(loginFormular.value)">
 
     <label for="email">Email:<br>
-    <input type="email" name="email" ngModel></label>
+    <input type="email" name="email" email required ngModel></label>
 
     <br>
     <br>
 
     <label for="password">Password:<br>
-    <input type="password" name="password" ngModel></label>
+    <input type="password" name="password" minlength="5" required ngModel></label>
 
     <br>
     <br>

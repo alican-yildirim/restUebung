@@ -13,10 +13,15 @@ export class LoginFormComponent {
 
   login(val : any) : void{
 
-    this.client.get('http://localhost:8080/login?email=' + val['email'] + '&&passwort=' + val['password']).subscribe(data => {
+    this.client.get('http://localhost:8080/login?email=' + val['email'] + '&&passwort=' + val['password'],{observe:'response'}).subscribe(data => {
 
-      this.loginCheck = data;
-      console.log(data);
+      if(data.status == 200){
+
+        this.loginCheck = data;
+        console.log(data.body);
+      }else{
+        console.log('Etwas ist schief gelaufen bei der Abfrage. Status: ' + data.status + '. Statustext: ' + data.statusText);
+      }
     });
 
   }

@@ -1,26 +1,26 @@
 
-<form>
+<form [formGroup]="registerForm" (ngSubmit)="register()">
 
     <label for="vorname">Vorname:<br>
-    <input type="text" name="vorname" id="vorname" ngModel></label>
+    <input type="text" name="vorname" id="vorname" formControlName="vorname"></label>
     
     <br>
     <br>
     
     <label for="nachname">Nachname:<br>
-    <input type="text" name="nachname" id="nachname" ngModel></label>
+    <input type="text" name="nachname" id="nachname" formControlName="nachname" ></label>
 
     <br>
     <br>
 
     <label for="email">Email:<br>
-    <input type="email" name="email" id="email" ngModel></label>
+    <input type="email" name="email" id="email" formControlName="email" ></label>
 
     <br>
     <br>
 
     <label for="password">Password:<br>
-    <input type="password" name="password" id="password" ngModel></label>
+    <input type="password" name="password" id="password" formControlName="password" ></label>
 
     <br>
     <br>
@@ -31,16 +31,16 @@
             <p>Geschlecht:</p>
             <br>
             <label for="male">M: </label>
-            <input type="radio" value="0" name="gender" id="male">
+            <input type="radio" value="0" name="gender" id="male" formControlName="gender">
             <br>
             <label for="women">W: </label>
-            <input type="radio" value="1" name="gender" id="women">
+            <input type="radio" value="1" name="gender" id="women" formControlName="gender">
         </div>
 
         <div class="flex">
             <label for="age">Alter:
                 <br>
-                <input type="range" name="age" max="16" max="80" value="0" #val (mousemove)="sliderValue = val.value">
+                <input type="range" name="age" max="16" max="80" value="0" formControlName="age" #val (mousemove)="sliderValue = val.value">
             </label>
 
             <p class="sliderValue">{{sliderValue}}</p>
