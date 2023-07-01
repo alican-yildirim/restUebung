@@ -14,7 +14,7 @@ tags:
   - name: Login
     description: hier befinden sich Methoden zum Login oder Registrieren
 paths:
-  /login:
+  /register:
     post:
       tags:
         - Login
@@ -27,26 +27,27 @@ paths:
               $ref: '#/components/schemas/LoginDaten'
       responses:
         200:
-          description: User existiert und wird somit eingeloggt!
+          description: User wurde in der DB erfolgreich angelegt!
           content:
             application/json:
               schema:
                 type: boolean
+  /login:
     get:
       tags:
         - Login
       operationId: loginUser
-      description: Diese Methode prüft, ob der user in der DB Tabelle existiert. Falls ja, dann wird TRUE returned, andernfalls FALSE.
+      description: Diese Methode prüft, ob der User in der DB Tabelle existiert. Falls ja, dann wird TRUE returniert, andernfalls FALSE.
       parameters:
         - $ref: '#/components/parameters/Email'
         - $ref: '#/components/parameters/Passwort'
       responses:
         200:
-          description: OK - fruits list
+          description: User existiert in der DB und wird somit eingeloggt!
           content:
             application/json:
               schema:
-#                default: ...
+                #                default: ...
                 type: boolean
 
 components:

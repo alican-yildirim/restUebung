@@ -47,7 +47,7 @@ public class LoginRessource implements LoginApi {
 //                }
 //        });
 
-        return null;
+        return true;
     }
 
 }
