@@ -38,9 +38,9 @@ export class RegisterFormComponent {
       vorname: this.registerForm.controls["vorname"].value,
       nachname: this.registerForm.controls["nachname"].value,
       email: this.registerForm.controls["email"].value,
-      password: this.registerForm.controls["password"].value,
-      gender: this.registerForm.controls["gender"].value,
-      age: this.registerForm.controls["age"].value
+      passwort: this.registerForm.controls["password"].value,
+      geschlecht: this.registerForm.controls["gender"].value,
+      alter: this.registerForm.controls["age"].value
     };
 
     this.client.post('http://localhost:8080/register', request_body ).subscribe(data => {
