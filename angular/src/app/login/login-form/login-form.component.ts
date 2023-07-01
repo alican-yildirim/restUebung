@@ -9,6 +9,8 @@ import { Component } from '@angular/core';
 export class LoginFormComponent {
 
   loginCheck : any  = {};
+  hide = true;
+
   constructor(private client : HttpClient) {}
 
   login(val : any) : void{

@@ -1,39 +1,25 @@
 
 
 
-<div class="first-container">
+
+<div *ngIf="this.regist==false" fxLayout="column center" fxLayoutAlign="center center" class="height">
     
-    <div class="second-container">
-        
+    <h1 class="formHeadline">Login</h1> 
 
+    <app-login-form></app-login-form>
 
-
-        
-        <div *ngIf="this.regist==false" class="forms">
-            
-            <h1 class="formHeadline">Login</h1>
-
-            <app-login-form></app-login-form>
-
-            <a (click)='this.regist = true;' class="registerLoginSwitch">Registrieren</a>
-        </div>
+    <a (click)='this.regist = true;'>Registrieren</a>
+</div>
 
 
 
 
 
-        <div *ngIf="this.regist==true">
+<div *ngIf="this.regist==true" fxLayout="column center" fxLayoutAlign="center center" class="height">
 
-            <h1 class="formHeadline">Registrieren</h1>
+    <h1 class="formHeadline">Registrieren</h1>
 
-            <app-register-form></app-register-form>
+    <app-register-form></app-register-form>
 
-            <a (click)='this.regist = false;' class="registerLoginSwitch">Login</a>
-        </div>
-
-
-
-
-    </div>
-    
+    <a (click)='this.regist = false;'>Login</a>
 </div>

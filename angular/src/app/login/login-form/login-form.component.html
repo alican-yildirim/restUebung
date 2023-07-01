@@ -1,7 +1,63 @@
 
 <form #loginFormular="ngForm" (ngSubmit)="login(loginFormular.value)">
 
-    <label for="email">Email:<br>
+
+    
+    <div fxLayout="column center">
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input name="email" matInput [type]="'email'" ngModel>
+            <mat-icon fontIcon="mail" matSuffix></mat-icon>
+        </mat-form-field>
+
+
+
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input name="password" matInput [type]="hide ? 'password' : 'text'" ngModel>
+            <button mat-icon-button matSuffix (click)="hide = !hide" >
+              <mat-icon fontIcon="{{hide ? 'visibility_off' : 'visibility'}}"></mat-icon>
+            </button>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary">Login</button>
+    </div>
+
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <label for="email">Email:<br>
     <input type="email" name="email" email required ngModel></label>
 
     <br>
@@ -13,6 +69,4 @@
     <br>
     <br>
 
-    <input type="submit" name="loginBtn" value="Login">
-
-</form>
+    <input type="submit" name="loginBtn" value="Login"> -->
