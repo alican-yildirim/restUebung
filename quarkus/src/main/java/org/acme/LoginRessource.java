@@ -20,12 +20,13 @@ public class LoginRessource implements LoginApi {
         client.query("SELECT * FROM USERS WHERE email='"+ email +"' AND password='"+ passwort +"'").execute(ar -> {
 
             if (ar.succeeded()) {
-                System.out.println("SELECT was successful !");
 //              System.out.println("Size:  " + ar.result().size());  // SIZE
 
                 if(ar.result().size()>0){
+                    System.out.println("USER EXISTS");
                     ret = true;
                 }else {
+                    System.out.println("USER DONT EXISTS");
                     ret = false;
                 }
             } else {
